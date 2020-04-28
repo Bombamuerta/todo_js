@@ -3,7 +3,7 @@ const addBtn = document.querySelector('.form-input-button')
 const todoList = document.querySelector('.todo-list')
 const filterOptions = document.querySelector('.filter-todo')
 
-const addItem = (e) => {
+const addItem = e => {
   e.preventDefault()
   if (formInput.value !== '') {
     const newItem = document.createElement('li')
@@ -30,7 +30,7 @@ const addItem = (e) => {
   }
 }
 
-const deleteCheck = (e) => {
+const deleteCheck = e => {
   const item = e.target
   if (item.classList[0] === 'todo-remove') {
     const todo = item.parentElement
@@ -38,7 +38,7 @@ const deleteCheck = (e) => {
   }
 }
 
-const completeToggle = (e) => {
+const completeToggle = e => {
   const item = e.target
   if (item.classList[0] === 'todo-complete') {
     const todo = item.parentElement
@@ -46,10 +46,10 @@ const completeToggle = (e) => {
   }
 }
 
-const filterTodo = (e) => {
+const filterTodo = e => {
   todos = todoList.childNodes
   console.log(todos)
-  todos.forEach(function (todoItem) {
+  todos.forEach(todoItem => {
     switch (e.target.value) {
       case 'all':
         todoItem.style.display = 'flex'
