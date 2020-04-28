@@ -15,9 +15,16 @@
       <h1 class="header">simple JS todo list</h1>
       <form class="form">
         <input class="form-input" type="text" placeholder="enter something" />
-        <button class="form-input-button">add</button>
+				<button class="form-input-button">add</button>
       </form>
-      <div class="todo-container">
+      <div class="select">
+        <select class="filter-todo" name="todos">
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="uncompleted">Uncompleted</option>
+        </select>
+      </div>
+	    <div class="todo-container">
         <ul class="todo-list"></ul>
       </div>
     </div>

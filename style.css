@@ -70,6 +70,10 @@ h1 {
   height: auto;
 }
 
+.todo-list {
+  width: 100%;
+}
+
 .todo-list-item {
   margin: 10px 0;
   width: 100%;
@@ -132,3 +136,34 @@ h1 {
   background: red;
   font-weight: bold;
 }
+
+.select {
+  position: relative;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.select::after {
+  position: absolute;
+  display: block;
+  content: "\25BC";
+  color: #000;
+  top: 7px;
+  right: 9px;
+}
+
+.filter-todo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  padding: 0 10px;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
+  outline: none;
+  border: 1px solid #000;
+  height: 40px;
+  border-radius: 5px;
+}
+
+

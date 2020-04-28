@@ -1,13 +1,14 @@
 const formInput = document.querySelector('.form-input')
 const addBtn = document.querySelector('.form-input-button')
-const todoContainer = document.querySelector('.todo-container')
+const todoList = document.querySelector('.todo-list')
+const filterOptions = document.querySelector('.filter-todo')
 
 const addItem = (e) => {
   e.preventDefault()
   if (formInput.value !== '') {
     const newItem = document.createElement('li')
     newItem.classList.add('todo-list-item')
-    todoContainer.appendChild(newItem)
+    todoList.appendChild(newItem)
 
     newTodoText = document.createElement('span')
     newTodoText.innerText = formInput.value
@@ -45,6 +46,33 @@ const completeToggle = (e) => {
   }
 }
 
+const filterTodo = (e) => {
+  todos = todoList.childNodes
+  console.log(todos)
+  todos.forEach(function (todoItem) {
+    switch (e.target.value) {
+      case 'all':
+        todoItem.style.display = 'flex'
+        break
+      case 'completed':
+        if (todoItem.classList.contains('completed')) {
+          todoItem.style.display = 'flex'
+        } else {
+          todoItem.style.display = 'none'
+        }
+        break
+      case 'uncompleted':
+        if (!todoItem.classList.contains('completed')) {
+          todoItem.style.display = 'flex'
+        } else {
+          todoItem.style.display = 'none'
+        }
+        break
+    }
+  })
+}
+
 addBtn.addEventListener('click', addItem)
-todoContainer.addEventListener('click', deleteCheck)
-todoContainer.addEventListener('click', completeToggle)
+todoList.addEventListener('click', deleteCheck)
+todoList.addEventListener('click', completeToggle)
+filterOptions.addEventListener('click', filterTodo)
