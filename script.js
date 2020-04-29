@@ -13,17 +13,19 @@ const addItem = e => {
     newTodoText = document.createElement('span')
     newTodoText.innerText = formInput.value
     newTodoText.classList.add('todo-text')
+    saveLocalTodos(formInput.value)
     newItem.appendChild(newTodoText)
+     
     formInput.value = ''
 
     completeBtn = document.createElement('button')
     completeBtn.classList.add('todo-complete')
-    completeBtn.innerText = 'done!'
+    completeBtn.innerText = 'Done!'
     newItem.appendChild(completeBtn)
 
     removeBtn = document.createElement('button')
     removeBtn.classList.add('todo-remove')
-    removeBtn.innerText = 'delete'
+    removeBtn.innerText = 'Delete'
     newItem.appendChild(removeBtn)
   } else {
     alert('write something!')
@@ -72,7 +74,34 @@ const filterTodo = e => {
   })
 }
 
+
+const saveLocalTodos = (localTodo) => {
+  let todos
+  if(localStorage.getItem(todos) === null){
+    todos = []
+  } else {
+    todos = JSON.parse(localStorage.getItem('todos'))
+  }
+  todos.push(localTodo)
+  localStorage.setItem('todos', JSON.stringify(todos))
+}
+
+
+
+
+// local store test
+// const arr = ['kill', 'crush', 'destroy']
+
+// localStorage.setItem(arr, JSON.stringify(arr))
+// console.log(arr)
+
+// const getLocal = JSON.parse(localStorage.getItem(arr))
+// console.log(arr)
+
+
+
 addBtn.addEventListener('click', addItem)
 todoList.addEventListener('click', deleteCheck)
 todoList.addEventListener('click', completeToggle)
 filterOptions.addEventListener('click', filterTodo)
+

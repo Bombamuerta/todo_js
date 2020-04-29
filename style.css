@@ -1,3 +1,14 @@
+:root {
+  --main-bg: #AEDCC0;
+  --widget-bg: #343E3D;
+  --item-color: #607466;
+  --border: #AEDCC0;
+  --text: #fff;
+  --add: #7BD389;
+  --complete: rgb(23, 160, 23);
+  --remove: rgb(252, 62, 62);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,26 +18,29 @@
 body {
   font-family: 'Poppins', sans-serif;
   width: 100%;
+  background: var(--main-bg);
+  min-height: 100vh;
 }
 
 .wrapper {
-  width: 400px;
+  max-width: 500px;
   margin: auto;
-  border: 2px solid rgb(87, 3, 3);
+  background: var(--widget-bg);
   padding: 15px;
   margin-top: 50px;
 }
 
 h1 {
   text-align: center;
-  border-bottom: 1px solid rgb(87, 3, 3);
+  border-bottom: 3px solid var(--border);
   padding-bottom: 10px;
+  color: var(--text);
 }
 
 .form {
   width: 100%;
   height: 65px;
-  border-bottom: 1px solid rgb(87, 3, 3);
+  border-bottom: 3px solid var(--border);
   display: flex;
   align-items: center;
 }
@@ -37,10 +51,10 @@ h1 {
   border: 0;
   outline: 0;
   height: 40px;
-  border-radius: 5px;
   padding: 0 10px;
   font-size: 18px;
-  border: 1px solid #000;
+  background: var(--item-color);
+  color: var(--text);
 }
 
 .form-input-button {
@@ -49,20 +63,19 @@ h1 {
   min-width: 110px;
   margin-left: 10px;
   height: 40px;
-  color: #000;
-  border-radius: 5px;
+  color: var(--widget-bg);
   outline: 0;
   border: 0;
-  background: linear-gradient(100deg, #dee583, #51fdd4);
+  background: var(--add);
 }
 
 .form-input-button:hover {
-  background: linear-gradient(100deg, #08b88f, #dee583);
   font-weight: bold;
 }
 
 .form-input::placeholder {
-  color: gray;
+  color: var(--text);
+  opacity: 0.5;
 }
 
 .todo-container {
@@ -85,15 +98,14 @@ h1 {
 .todo-text {
   display: block;
   flex: 1;
-  background: #fff;
+  background: var(--item-color);
+  color: var(--text);
   border: 0;
   outline: 0;
   height: 40px;
-  border-radius: 5px;
   padding: 0 10px;
   font-size: 18px;
   line-height: 1.9;
-  border: 1px solid #000;
 }
 
 .todo-complete {
@@ -102,15 +114,13 @@ h1 {
   width: 50px;
   margin-left: 10px;
   height: 40px;
-  color: #000;
-  border-radius: 5px;
+  color: var(--text);
   outline: 0;
   border: 0;
-  background: rgb(11, 179, 11);
+  background: var(--complete);
 }
 
 .todo-complete:hover {
-  background: rgb(14, 226, 14);
   font-weight: bold;
 }
 
@@ -125,15 +135,13 @@ h1 {
   width: 50px;
   margin-left: 10px;
   height: 40px;
-  color: #000;
-  border-radius: 5px;
+  color: var(--text);
   outline: 0;
   border: 0;
-  background: rgb(255, 105, 105);
+  background: var(--remove);
 }
 
 .todo-remove:hover {
-  background: red;
   font-weight: bold;
 }
 
@@ -147,9 +155,14 @@ h1 {
   position: absolute;
   display: block;
   content: "\25BC";
-  color: #000;
+  color: var(--text);
   top: 7px;
   right: 9px;
+}
+
+option {
+  background: var(--item-color);
+  border: 0;
 }
 
 .filter-todo {
@@ -159,11 +172,27 @@ h1 {
   width: 100%;
   -webkit-appearance: none;
   appearance: none;
-  background: none;
+  background: var(--item-color);
+  color: var(--text);
   outline: none;
-  border: 1px solid #000;
+  border: 0;
   height: 40px;
-  border-radius: 5px;
 }
 
+@media (max-width: 450px) {
+  .wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--widget-bg);
+    padding: 15px;
+    margin-top: 0;
+  }
 
+  h1 {
+    font-size: 24px;
+  }
+
+  .form-input-button {
+    min-width: 50px;
+  }
+}
